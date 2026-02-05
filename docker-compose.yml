@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  test_runner:
+    image: sauce-tests
+
+    volumes:
+      - ./allure-results:/app/allure-results
