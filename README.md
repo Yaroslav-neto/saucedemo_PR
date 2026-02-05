@@ -1,3 +1,5 @@
+[![Playwright Tests](https://github.com/Yaroslav-neto/saucedemo_PR/actions/workflows/playwright.yml/badge.svg)](https://github.com/Yaroslav-neto/saucedemo_PR/actions/workflows/playwright.yml)
+ 
  # 🧪 Автоматизация логина на SauceDemo (Playwright + Allure)
 
 Проект содержит сценарии автоматизированного тестирования авторизации для сайта [SauceDemo](https://www.saucedemo.com). Тесты написаны на Python с использованием Playwright и запускаются в изолированном Docker-контейнере.
