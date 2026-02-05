@@ -7,15 +7,10 @@ on:
 
 jobs:
   test:
-    # Уменьшим таймаут до 15 минут, обычно 60 минут это слишком много
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # Сначала устанавливаем системные зависимости Playwright
-      - name: Install Playwright system dependencies
-        run: sudo apt-get update && sudo apt-get install -y libnss3 libatk-bridge2.0-0 libdrm2 libgbm1 libasound2
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -26,14 +21,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install playwright
 
-      - name: Ensure browsers are installed (Chromium)
-        # Эта команда установит только сам исполняемый файл браузера в систему CI
-        run: playwright install chromium
+      - name: Install Playwright Browsers and Deps
+        run: playwright install chromium --with-deps
 
       - name: Run Playwright tests
-        # Явно передаем base_url как опцию, чтобы pytest не зависел от локального pytest.ini
-        # Добавим флаг -v для подробного вывода логов
         run: pytest -v --base-url=https://www.saucedemo.com --alluredir=allure-results
 
       - name: Upload Allure Results
@@ -43,4 +36,3 @@ jobs:
           name: allure-results
           path: allure-results/
           retention-days: 5
-
