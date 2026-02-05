@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Test markers and cache
+.pytest_cache/
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Allure results and reports
+# Мы игнорим содержимое, чтобы не пушить старые прогоны в репозиторий
+allure-results/*
+allure-report/
+
+# Security and secrets
+.env
+
+# IDE folders
+.idea/
+.vscode/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
